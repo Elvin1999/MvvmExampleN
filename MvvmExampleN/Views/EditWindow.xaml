@@ -19,6 +19,7 @@
             <TextBox Text="{Binding EditPrinter.Color,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" FontSize="26" ></TextBox>
 
             <Button FontSize="26" Command="{Binding SaveCommand}" CommandParameter="{Binding ElementName=MyEditWindow}" >Save Data</Button>
+            <Button FontSize="26" Command="{Binding AddCommand}" CommandParameter="{Binding ElementName=MyEditWindow}" >Add Printer</Button>
         </StackPanel>
     </Grid>
 </Window>

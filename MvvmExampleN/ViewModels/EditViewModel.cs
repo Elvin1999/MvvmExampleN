@@ -3,9 +3,11 @@ using MvvmExampleN.Models;
 using MvvmExampleN.Views;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace MvvmExampleN.ViewModels
 {
@@ -19,6 +21,10 @@ namespace MvvmExampleN.ViewModels
 			set { editPrinter = value; OnPropertyChanged(); }
 		}
 
+		public ObservableCollection<Printer> Printers { get; set; }
+
+		public RelayCommand AddCommand { get; set; }
+
 		public RelayCommand SaveCommand { get; set; }
 
 		public EditViewModel()
@@ -28,6 +34,19 @@ namespace MvvmExampleN.ViewModels
 				var window = w as EditWindow;
 				window.Close();
 			});
+
+			AddCommand = new RelayCommand((a) =>
+			{
+				var printer = new Printer
+				{
+					Color = EditPrinter.Color,
+					Model = EditPrinter.Model,
+					Vendor = EditPrinter.Vendor
+				};
+				Printers.Add(printer);
+				MessageBox.Show("New Printer addedd successfully");
+			});
+
 		}
 	}
 }

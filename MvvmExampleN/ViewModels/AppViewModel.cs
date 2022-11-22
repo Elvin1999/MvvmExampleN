@@ -83,6 +83,7 @@ namespace MvvmExampleN.ViewModels
                 EditWindow editWindow = new EditWindow();
                 var editVM = new EditViewModel();
 
+                editVM.Printers = Printers;
                 editVM.EditPrinter = Printer;
 
                 editWindow.DataContext = editVM;
